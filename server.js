@@ -1,3 +1,5 @@
+import {} from .env
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -7,11 +9,14 @@ const indicatorRoutes = require('./routes/indicators');
 const valueRoutes = require('./routes/values');
 const industryValueRoutes = require('./routes/industryValues');
 const setRoutes = require('./routes/sets');
+const muser = process.env.muser;
+const mpass = process.env.mpass;
+const mURL = process.env.mURL;
 
 
-const app = express(); // Initialize express application
+const app = express(); // Initialize express appliccation
 
-const mongoDBConnectionString = 'mongodb+srv://master:L7Ud4ykqteAP2bX6@cluster0.ic6bibd.mongodb.net/';  // Replace with your connection string
+const mongoDBConnectionString = 'mongodb+srv://'&muser&':'&mpass&'@'&mURL;  // Replace with your connection string
 
 // Connect to MongoDB Atlas
 mongoose.connect(mongoDBConnectionString, { 
