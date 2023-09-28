@@ -1,4 +1,4 @@
-import {} from .env
+require('dotenv').config();
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -12,11 +12,10 @@ const setRoutes = require('./routes/sets');
 const muser = process.env.muser;
 const mpass = process.env.mpass;
 const mURL = process.env.mURL;
-
+const mongoDBConnectionString = `mongodb+srv://${muser}:${mpass}@${mURL}`;
 
 const app = express(); // Initialize express appliccation
 
-const mongoDBConnectionString = 'mongodb+srv://'&muser&':'&mpass&'@'&mURL;  // Replace with your connection string
 
 // Connect to MongoDB Atlas
 mongoose.connect(mongoDBConnectionString, { 
