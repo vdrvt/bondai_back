@@ -16,7 +16,6 @@ const mongoDBConnectionString = `mongodb+srv://${muser}:${mpass}@${mURL}`;
 
 const app = express(); // Initialize express appliccation
 
-
 // Connect to MongoDB Atlas
 mongoose.connect(mongoDBConnectionString, { 
     useNewUrlParser: true,
